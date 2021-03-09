@@ -33,7 +33,7 @@ RSpec.describe SimpleCov::Formatter::BitbucketServer do
       .with(
         headers: {
           'Content-Type' => 'application/json',
-          'User-Agent' => 'SimpleCov-BitbucketServer/0.1.0'
+          'User-Agent' => 'SimpleCov-BitbucketServer/1.0.0'
         },
         body: '{"files":[{"path":"path/to/file.rb","coverage":"C:1,2;P:3;U:4,5"}]}'
       )
