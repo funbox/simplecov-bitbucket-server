@@ -1,6 +1,8 @@
 # SimpleCov to Bitbucket Server
 
-<!-- place for badges -->
+[![Gem Version](https://img.shields.io/gem/v/simplecov-bitbucket-server.svg)](https://rubygems.org/gems/simplecov-bitbucket-server)
+[![Travis CI](https://img.shields.io/travis/com/funbox/simplecov-bitbucket-server.svg)](https://travis-ci.com/github/funbox/simplecov-bitbucket-server)
+[![Coveralls](https://img.shields.io/coveralls/funbox/simplecov-bitbucket-server.svg)](https://coveralls.io/github/funbox/simplecov-bitbucket-server)
 
 A [SimpleCov](https://rubygems.org/gems/simplecov) formatter that uploads coverage data to a Bitbucket Server instance via [Code Coverage](https://marketplace.atlassian.com/apps/1218271/code-coverage-for-bitbucket-server) plugin.
 
