@@ -1,9 +1,5 @@
 require 'webmock/rspec'
 require 'simplecov'
-require 'coveralls'
-
-Coveralls.wear!
-
 require 'simplecov/formatter/bitbucket_server'
 
 RSpec.describe SimpleCov::Formatter::BitbucketServer do
