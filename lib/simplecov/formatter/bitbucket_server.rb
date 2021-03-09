@@ -23,6 +23,8 @@ module SimpleCov
       end
 
       def files(result)
+        puts "Encoding coverage data for #{result.files.size} files"
+
         result.files.map do |file|
           {
             path: file.project_filename[1..-1],
@@ -46,10 +48,14 @@ module SimpleCov
       end
 
       def upload(coverage)
+        puts "Uploading #{coverage.bytesize} bytes of coverage data to #{endpoint}"
+
         Net::HTTP.post(endpoint, coverage, {
           'Content-Type' => 'application/json',
           'User-Agent' => "SimpleCov-BitbucketServer/#{VERSION}"
         })
+
+        puts 'Coverage has been uploaded successfully.'
       end
 
       def endpoint
