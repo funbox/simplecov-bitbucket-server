@@ -4,6 +4,7 @@ Gem::Specification.new do |gem|
   gem.name = 'simplecov-bitbucket-server'
   gem.version = SimpleCov::Formatter::BitbucketServer::VERSION
   gem.summary = 'Uploads test coverage data to Bitbucket Server via Code Coverage plugin'
+  gem.homepage = 'https://github.com/funbox/simplecov-bitbucket-server'
   gem.author = 'Ilya Vassilevsky <i.vasilevskiy@fun-box.ru>'
 
   gem.files = Dir.glob('lib/**/*.rb')
