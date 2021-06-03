@@ -50,12 +50,24 @@ module SimpleCov
       def upload(coverage)
         puts "Uploading #{coverage.bytesize} bytes of coverage data to #{endpoint}"
 
-        Net::HTTP.post(endpoint, coverage, {
-          'Content-Type' => 'application/json',
-          'User-Agent' => "SimpleCov-BitbucketServer/#{VERSION}"
-        })
+        url = endpoint
+        req = Net::HTTP::Post.new(
+          url.path,
+          { 'Content-Type' => 'application/json',
+            'User-Agent' => "SimpleCov-BitbucketServer/#{VERSION}" }
+        )
+        req.body = coverage
+        Net::HTTP.start(url.host, url.port, open_timeout: 120, read_timeout: 120, write_timeout: 120) do |http|
+          http.request(req)
+        end
 
         puts 'Coverage has been uploaded successfully.'
+      rescue Net::OpenTimeout
+        puts "#{url.host}:#{url.port} is NOT reachable (OpenTimeout)"
+      rescue Net::ReadTimeout
+        puts "#{url.host}:#{url.port} is NOT reachable (ReadTimeout)"
+      rescue Net::WriteTimeout
+        puts "#{url.host}:#{url.port} is NOT reachable (WriteTimeout)"
       end
 
       def endpoint
