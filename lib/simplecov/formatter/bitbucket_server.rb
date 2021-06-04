@@ -1,7 +1,7 @@
 module SimpleCov
   module Formatter
     class BitbucketServer
-      VERSION = '1.0.0'
+      VERSION = '1.0.1'
 
       def initialize(base_uri, sha = ENV['GIT_COMMIT'])
         @base_uri = base_uri
